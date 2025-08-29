@@ -13,7 +13,7 @@
     }
 
 .stSelectbox, .stMultiselect, .stSlider {
-    background-color: #ffffff;
+    background-color: none;
     border-radius: 5px;
     padding: 5px;
     }
@@ -64,3 +64,4 @@ div[data-testid="stDataFrame"] tr:hover {
     background-color: #e6f0fa !important;
 
 }
+
