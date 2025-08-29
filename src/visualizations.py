@@ -139,15 +139,16 @@ def plot_revenue_by_vehicle_type(df):
             line=dict(color='#ffffff', width=1),  # White bar borders
             showscale=False
         ),
-        hovertemplate='Vehicle: %{customdata}<br>Revenue: $%{y:,.2f}<extra></extra>',
+        hovertemplate='Vehicle: %{customdata}<br>Revenue: ₹%{y:,.2f}<extra></extra>',
         customdata=revenue_data['Vehicle Type'],  # Use vehicle type name for hover
         text=None,  # No text labels on bars
         textposition=None
     ))
 
     fig.update_layout(
+        xaxis_title="Vehicle Type",
         yaxis_title="Total Revenue (₹)",
-        height=400,
+        height=405,
         margin=dict(l=20, r=20, t=20, b=20),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -191,14 +192,14 @@ def plot_revenue_distribution_box(df):
             line=dict(color='#0057b8', width=1.5)  # Darker blue outline
         ),
         fillcolor='rgba(0, 80, 135, 0.2)',  # Light blue fill with transparency
-        line=dict(width=2),
+        line=dict(width=3),
         boxpoints=False
     ))
 
     fig.update_layout(
         yaxis_title="Revenue (₹)",
         xaxis_title=None,
-        height=400,
+        height=450,
         margin=dict(l=20, r=20, t=20, b=20),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -225,7 +226,8 @@ def plot_cancellation_reason_counts(df, source, x_title):
 
     Args:
         df (pd.DataFrame): Filtered DataFrame with 'Booking Status' and 'Cancellation Reason (Customer)' columns.
-
+        source: either customer or driver
+        x_title: show x title or not
     Returns:
         go.Figure: Plotly horizontal bar plot with gradient bars and custom hover.
     """
@@ -263,13 +265,13 @@ def plot_cancellation_reason_counts(df, source, x_title):
         text=reason_counts['Reason'],  # Place reasons inside bars
         textposition='inside',  # Position text inside bars
         insidetextanchor='start',
-        textfont=dict(color='#ffffff', size=17)  # White text, readable size
+        textfont=dict(color='#ffffff', size=16)  # White text, readable size
     ))
 
     fig.update_layout(
         xaxis_title="Number of Cancellations" if x_title == 1 else None,
-        height=175,
-        margin=dict(l=10, r=10, t=10, b=10),
+        height=200,
+        margin=dict(l=20, r=20, t=10, b=10),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         font=dict(color='#333333', size=12),
@@ -284,7 +286,7 @@ def plot_cancellation_reason_counts(df, source, x_title):
             showgrid=False,
             autorange='reversed'  # Highest count at top
         ),
-        bargap=0.15
+        bargap=0.3
     )
 
     return fig
