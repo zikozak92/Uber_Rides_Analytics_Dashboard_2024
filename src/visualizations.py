@@ -148,7 +148,7 @@ def plot_revenue_by_vehicle_type(df):
     fig.update_layout(
         xaxis_title="Vehicle Type",
         yaxis_title="Total Revenue (₹)",
-        height=405,
+        height=470,
         margin=dict(l=20, r=20, t=20, b=20),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -290,3 +290,4 @@ def plot_cancellation_reason_counts(df, source, x_title):
     )
 
     return fig
+
